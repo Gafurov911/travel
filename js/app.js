@@ -9,16 +9,24 @@
     };
 })();
 
-const burger_active = document.querySelector('.header__burger')
-const burger_close = document.querySelector('.header__nav-close')
-const header__nav = document.querySelector('.header__nav')
+(function() {
+    const burger = document.querySelector('.burger')
+    const menu = document.querySelector('.header__nav')
+    const closeItem = document.querySelector('.header__nav-close')
+    burger.addEventListener('click', () => {
+        menu.classList.add('header__nav-active')
+    });
+    closeItem.addEventListener('click', () => {
+        menu.classList.remove('header__nav-active')
+    })
+}) ();
 
-burger_active.addEventListener("click", function () {
-    burger_active.style.display = 'none'
-    header__nav.style.display = 'block'      
-});
-
-burger_close.addEventListener("click", function () {
-    burger_active.style.display = 'block'
-    header__nav.style.display = 'none'      
-});
+(function() {
+    const mask = document.querySelector('.mask')
+    window.addEventListener('load', () => {
+        mask.classList.add('hide')
+        setTimeout(() => {
+            mask.remove()
+        }, 1000)
+    })
+})();
